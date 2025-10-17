@@ -35,6 +35,7 @@
 
         <mod id="1GCEQYqu1XL4ZfZXOV5JFsG7_kPXCrA0a" version="1.0.35" des="mods/gravestone-forge-1.20.1-1.0.35.jar" original="https://www.curseforge.com/minecraft/mc-mods/gravestone-mod" supportNeoForge="true" />
         <mod id="1A9jV9x_mt6UIPThg3NwADHGUQ9fx8QLD" version="1.12" des="mods/Towns-and-Towers-1.12-Fabric+Forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/towns-and-towers" supportNeoForge="true" />
+        <mod id="1KwZo_-v-4LOZSvP3t-8cFo5R4yZjzgYM" version="20.12.4.3" des="mods/invincible-forge1.20.1-20.12.4.3.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-invincible" supportNeoForge="true" />
         <mod id="1kqwbx_sCI8D1OVGieZYUciGEUgnA_9AI" version="8.2" des="mods/villagernames-1.20.1-8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/villager-names" supportNeoForge="true" />
         <mod id="1zutQ3icyh2GhaeDBvnQFENo7DxhTrJS5" version="3.1" des="mods/VillagersPlus_3.1_(FORGE)_for_1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/villagersplus-forge" supportNeoForge="true" />
         <mod id="1EKPSwQEfwr1JyQ5xLLxfw-VL2Kj9k80s" version="1.0.4" des="mods/SkyVillages-1.0.4-1.19.2-1.20.1-forge-release.jar" original="https://www.curseforge.com/minecraft/mc-mods/sky-villages-forge" supportNeoForge="false" />
@@ -56,6 +57,6 @@
         <mod id="1eMi-2MiJeNFtx9dYhF0oBQIbxO-L0Bim" version="3.0.7" des="mods/immersive-portals-3.0.7-all.jar" original="https://www.curseforge.com/minecraft/mc-mods/immersive-portals-for-forge" supportNeoForge="false" />
         <mod id="1g8Agt0aThACT5l3rmkOyILdx0zWiIqL2" version="1.0.0" des="mods/epicclassmod-1.0.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-rise-of-heroes" supportNeoForge="false" />
         <mod id="10XnogimRv0X0jAlMPDDDoIRQfWc8V1ke" version="20.12.12" des="mods/epicfight-forge-20.12.12-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod" supportNeoForge="false" />
-        <mod id="1pnMh3Ll4uBcq4DlO_9HXeGWg0nBFSAwK" version="2.1.5" des="mods/EpicFight-Nightfall-2.1.5.jar" original="https://www.curseforge.com/minecraft/mc-mods/epicfight-nightfall" supportNeoForge="false" />
+        <mod id="1hIgCZrlsv4BJFvqPMlb40wPgoFFTe6aH" version="2.1.5" des="mods/epic_fight_avalon-20.12.3.4.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-avalon" supportNeoForge="false" />
     </repository>
 </minecraftServer>
