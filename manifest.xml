@@ -1,32 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <minecraftServer version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <connection ip="0.0.0.0" port="25565" forge="1.20.1-forge-47.4.0" />
+    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-forge-47.4.0" />
     <repository>
-        <mod id="10hjzXY3uDkhM7Q9s4QCmAiKLPldj_ADE" version="1.1.1" des="mods/WarriorsOfWorld2-1.1.1-forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/guerreros-del-mundo-2" />
-        <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" original="https://www.curseforge.com/minecraft/mc-mods/laendli-transport" />
-        <mod id="14wLBRw7TlDCUqkJaI1d9wM9S5iZdu-4j" version="0.0.10" des="mods/ancientstructures-forge-1.20.1-0.0.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/ancient-cultural-structures" />
-        <mod id="1I6HM63iaVNgUNb7LoailRC17nbiPKK3R" version="2.5.37.4" des="mods/goety-2.5.37.4.jar" original="https://www.curseforge.com/minecraft/mc-mods/goety" />
-        <mod id="1zJ9DWuTXO7l-Wdk564p_8t0HBleQq899" version="3.1" des="mods/The_Graveyard_3.1_(FORGE)_for_1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/the-graveyard-forge" />
-        <mod id="1mF2a0FC_DgPyj7pNUppWSb93KrJ-Hwf3" version="1.9.8" des="mods/legendarymonsters-1.9.8 MC 1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/legendary-monsters" />
-        <mod id="1W5x7DKAmcp8kS80xEYGj0NU-LAnJ4N1g" version="2.15" des="mods/DarkSoulsExpansionv2.15.jar" original="https://www.curseforge.com/minecraft/mc-mods/dark-souls-expansion" />
-        <mod id="12OWFecLZctVH8BscnpFp0Td9CDOIRLVT" version="19.0.0.96" des="mods/BiomesOPlenty-forge-1.20.1-19.0.0.96.jar" original="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty" />
-        <mod id="1ICWUrXbxquuLpXJGszfF9AAnJX0gnwgJ" version="4.8.2" des="mods/geckolib-forge-1.20.1-4.8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/geckolib" />
-        <mod id="1UJ86__CLJKh3Dn3OCnQXaklIIQCAj8U_" version="2001.4.14" des="mods/ftb-quests-forge-2001.4.14.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge/" />
-        <mod id="1bzEKmWTWUkZAaDdq63GouPZbr2qICQld" version="11.1.136" des="mods/cloth-config-11.1.136-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cloth-config" />
-        <mod id="1xy_epxAgAP8-_KKbYjrCWS-X0wtHDUKd" version="1-1.4.10" des="mods/sound-physics-remastered-forge-1.20.1-1.4.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/sound-physics-remastered" />
-        <mod id="1bm5vOarD_yByKJzYn9TughiK7UWVwYwF" version="1.2.2" des="mods/Better_Dogs_X_Doggy_Talents_Next_v1.2.2 [Forge] - [1.20-1.20.1].jar" original="https://www.curseforge.com/minecraft/mc-mods/better-dogs-x-doggy-talents-next" />
-        <mod id="1bc5Dt1D4SaYztAOkC1HSt_0huTVSYTFv" version="9.1.44" des="mods/travelersbackpack-forge-1.20.1-9.1.44.jar" original="https://www.curseforge.com/minecraft/mc-mods/travelers-backpack" />
-        <mod id="1KmXQFTLdmxEFQlfuUGto6I4ShZKXh_sQ" version="6.0.6" des="mods/create-1.20.1-6.0.6.jar" original="https://www.curseforge.com/minecraft/mc-mods/create" />
-        <mod id="1_W1xYUWO1u52kjuyyZkFk3Vzkk82nGqM" version="5.14.1" des="mods/curios-forge-5.14.1+1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/curios" />
-        <mod id="1To5UV9wvX9gZ0abAIwfLFim5iPb7bpW1" version="3.0.1.10" des="mods/TerraBlender-forge-1.20.1-3.0.1.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/terrablender" />
-        <mod id="1alQmlLLmr8qMOO7-MPMDQ2qM7EKO6r3n" version="15.20.0.116" des="mods/jei-1.20.1-forge-15.20.0.116.jar" original="https://www.curseforge.com/minecraft/mc-mods/jei" />
+        <mod id="10hjzXY3uDkhM7Q9s4QCmAiKLPldj_ADE" version="1.1.1" des="mods/WarriorsOfWorld2-1.1.1-forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/guerreros-del-mundo-2" supportNeoForge=false />
+        <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" original="https://www.curseforge.com/minecraft/mc-mods/laendli-transport" supportNeoForge=false />
+        <mod id="14wLBRw7TlDCUqkJaI1d9wM9S5iZdu-4j" version="0.0.10" des="mods/ancientstructures-forge-1.20.1-0.0.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/ancient-cultural-structures" supportNeoForge=false />
+        <mod id="1I6HM63iaVNgUNb7LoailRC17nbiPKK3R" version="2.5.37.4" des="mods/goety-2.5.37.4.jar" original="https://www.curseforge.com/minecraft/mc-mods/goety" supportNeoForge=true />
+        <mod id="1zJ9DWuTXO7l-Wdk564p_8t0HBleQq899" version="3.1" des="mods/The_Graveyard_3.1_(FORGE)_for_1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/the-graveyard-forge" supportNeoForge=false />
+        <mod id="1mF2a0FC_DgPyj7pNUppWSb93KrJ-Hwf3" version="1.9.8" des="mods/legendarymonsters-1.9.8 MC 1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/legendary-monsters" supportNeoForge=false />
+        <mod id="1W5x7DKAmcp8kS80xEYGj0NU-LAnJ4N1g" version="2.15" des="mods/DarkSoulsExpansionv2.15.jar" original="https://www.curseforge.com/minecraft/mc-mods/dark-souls-expansion" supportNeoForge=false />
+        <mod id="12OWFecLZctVH8BscnpFp0Td9CDOIRLVT" version="19.0.0.96" des="mods/BiomesOPlenty-forge-1.20.1-19.0.0.96.jar" original="https://www.curseforge.com/minecraft/mc-mods/biomes-o-plenty" supportNeoForge=true />
+        <mod id="1ICWUrXbxquuLpXJGszfF9AAnJX0gnwgJ" version="4.8.2" des="mods/geckolib-forge-1.20.1-4.8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/geckolib" supportNeoForge=true />
+        <mod id="1UJ86__CLJKh3Dn3OCnQXaklIIQCAj8U_" version="2001.4.14" des="mods/ftb-quests-forge-2001.4.14.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-quests-forge/" supportNeoForge=false />
+        <mod id="1bzEKmWTWUkZAaDdq63GouPZbr2qICQld" version="11.1.136" des="mods/cloth-config-11.1.136-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cloth-config" supportNeoForge=true />
+        <mod id="1xy_epxAgAP8-_KKbYjrCWS-X0wtHDUKd" version="1-1.4.10" des="mods/sound-physics-remastered-forge-1.20.1-1.4.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/sound-physics-remastered" supportNeoForge=true />
+        <mod id="1bm5vOarD_yByKJzYn9TughiK7UWVwYwF" version="1.2.2" des="mods/Better_Dogs_X_Doggy_Talents_Next_v1.2.2 [Forge] - [1.20-1.20.1].jar" original="https://www.curseforge.com/minecraft/mc-mods/better-dogs-x-doggy-talents-next" supportNeoForge=false />
+        <mod id="1bc5Dt1D4SaYztAOkC1HSt_0huTVSYTFv" version="9.1.44" des="mods/travelersbackpack-forge-1.20.1-9.1.44.jar" original="https://www.curseforge.com/minecraft/mc-mods/travelers-backpack" supportNeoForge=false />
+        <mod id="1KmXQFTLdmxEFQlfuUGto6I4ShZKXh_sQ" version="6.0.6" des="mods/create-1.20.1-6.0.6.jar" original="https://www.curseforge.com/minecraft/mc-mods/create" supportNeoForge=true />
+        <mod id="1_W1xYUWO1u52kjuyyZkFk3Vzkk82nGqM" version="5.14.1" des="mods/curios-forge-5.14.1+1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/curios" supportNeoForge=true />
+        <mod id="1To5UV9wvX9gZ0abAIwfLFim5iPb7bpW1" version="3.0.1.10" des="mods/TerraBlender-forge-1.20.1-3.0.1.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/terrablender" supportNeoForge=true />
+        <mod id="1alQmlLLmr8qMOO7-MPMDQ2qM7EKO6r3n" version="15.20.0.116" des="mods/jei-1.20.1-forge-15.20.0.116.jar" original="https://www.curseforge.com/minecraft/mc-mods/jei" supportNeoForge=false />
 
-        <mod id="128k0SVOXlTo7E9sxEHBRj_HjXvDbm1dy" version="2001.3.1" des="mods/ftb-teams-forge-2001.3.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge" />
-        <mod id="1lNA6HD6GnfexcWGzfcBWfBWUkGbmOsah" version="1.18.62" des="mods/DoggyTalentsNext-1.20.1-1.18.62.jar" original="https://www.curseforge.com/minecraft/mc-mods/doggy-talents-next" />
-        <mod id="1z8Q5YQJShz5BzisVF6Hms7c5tKdcZsjs" version="1.5.28" des="mods/dawnoftimebuilder-forge-1.20.1-1.5.28.jar" original="https://www.curseforge.com/minecraft/mc-mods/dawn-of-time" />
-        <mod id="1ytnsj_tRmxyiX2uu-VZt42r4pOZsDFhE" version="9.2.14" des="mods/architectury-9.2.14-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/architectury-api" />
-        <mod id="1zRSEButv6RFalSR4HSTSuHQ1UGSo1tSK" version="1.3.11" des="mods/Armor of the Ages-forge-1.20.1-1.3.11.jar" original="https://www.curseforge.com/minecraft/mc-mods/armor-of-the-ages" />
-        <mod id="1rCWO-goUiljwTAP6tSlAjTlVEpMDQOOW" version="2001.2.10" des="mods/ftb-library-forge-2001.2.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge" />
-        <mod id="1mzEoU7VbQJVniDX5M4bC26s46bcji0Vd" version="0.0.1.1" des="mods/GlitchCore-forge-1.20.1-0.0.1.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/glitchcore" />
+        <mod id="128k0SVOXlTo7E9sxEHBRj_HjXvDbm1dy" version="2001.3.1" des="mods/ftb-teams-forge-2001.3.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge" supportNeoForge=false />
+        <mod id="1lNA6HD6GnfexcWGzfcBWfBWUkGbmOsah" version="1.18.62" des="mods/DoggyTalentsNext-1.20.1-1.18.62.jar" original="https://www.curseforge.com/minecraft/mc-mods/doggy-talents-next" supportNeoForge=false />
+        <mod id="1z8Q5YQJShz5BzisVF6Hms7c5tKdcZsjs" version="1.5.28" des="mods/dawnoftimebuilder-forge-1.20.1-1.5.28.jar" original="https://www.curseforge.com/minecraft/mc-mods/dawn-of-time" supportNeoForge=false />
+        <mod id="1ytnsj_tRmxyiX2uu-VZt42r4pOZsDFhE" version="9.2.14" des="mods/architectury-9.2.14-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/architectury-api" supportNeoForge=false />
+        <mod id="1zRSEButv6RFalSR4HSTSuHQ1UGSo1tSK" version="1.3.11" des="mods/Armor of the Ages-forge-1.20.1-1.3.11.jar" original="https://www.curseforge.com/minecraft/mc-mods/armor-of-the-ages" supportNeoForge=false />
+        <mod id="1rCWO-goUiljwTAP6tSlAjTlVEpMDQOOW" version="2001.2.10" des="mods/ftb-library-forge-2001.2.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge" supportNeoForge=false />
+        <mod id="1mzEoU7VbQJVniDX5M4bC26s46bcji0Vd" version="0.0.1.1" des="mods/GlitchCore-forge-1.20.1-0.0.1.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/glitchcore" supportNeoForge=false />
+
+        <mod id="1jgekL4cs3A06uelA7vmF3jhp8A2dFfNC" version="1.0.0" des="mods/armorstandarms-forge-1.20.1-1.0.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/armor-stand-arms" supportNeoForge=false />
+        <mod id="1PssP0Yow8VgibCDVfGcExTKSVZ25GmfP" version="4.6.0" des="mods/rightclickharvest-forge-4.6.0+1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/rightclickharvest" supportNeoForge=true />
+        <mod id="1BrOfKDjkQqK2PoDCLXp1-eSwFxjQ7o7M" version="7.0.2" des="mods/BetterF3-7.0.2-Forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/betterf3" supportNeoForge=false />
+        <mod id="1JDOYeOEQ-gigf5J282ZPhZqJbIcS_99S" version="1.1.3" des="mods/Pretty Rain-1.20.1-Forge-1.1.3.jar" original="https://www.curseforge.com/minecraft/mc-mods/pretty-rain" supportNeoForge=true />
+
+        <mod id="1GCEQYqu1XL4ZfZXOV5JFsG7_kPXCrA0a" version="1.0.35" des="mods/gravestone-forge-1.20.1-1.0.35.jar" original="https://www.curseforge.com/minecraft/mc-mods/gravestone-mod" supportNeoForge=true />
+        <mod id="1A9jV9x_mt6UIPThg3NwADHGUQ9fx8QLD" version="1.12" des="mods/Towns-and-Towers-1.12-Fabric+Forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/towns-and-towers" supportNeoForge=true />
+        <mod id="1kqwbx_sCI8D1OVGieZYUciGEUgnA_9AI" version="8.2" des="mods/villagernames-1.20.1-8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/villager-names" supportNeoForge="true" />
+        <mod id="1zutQ3icyh2GhaeDBvnQFENo7DxhTrJS5" version="3.1" des="mods/VillagersPlus_3.1_(FORGE)_for_1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/villagersplus-forge" supportNeoForge="true" />
+        <mod id="1EKPSwQEfwr1JyQ5xLLxfw-VL2Kj9k80s" version="1.0.4" des="mods/SkyVillages-1.0.4-1.19.2-1.20.1-forge-release.jar" original="https://www.curseforge.com/minecraft/mc-mods/sky-villages-forge" supportNeoForge="false" />
+        <mod id="1uHlrrC9nGugWV5cZvZEbaoMH9o5luoNP" version="2.1.0" des="mods/UndergroundVillages-forge-1.20.1-2.1.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/underground-villages" supportNeoForge="false" />
+        <mod id="1pKZZn5vXr3Z4AqqVxuT0dxa082sQx_Ot" version="0.0.8" des="mods/lios_overhauled_villages-1.18.2-1.21.6-v0.0.8.jar" original="https://www.curseforge.com/minecraft/mc-mods/lios-overhauled-villages" supportNeoForge="true" />
+        <mod id="1EGAB4gYiwkJpfEyLZMgJ6rcawyJx2mq3" version="4.0" des="mods/randomvillagenames-1.20.1-4.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/random-village-names" supportNeoForge="true" />
+        <mod id="1MHlD6R5SRKVfy-RAC2m66Foc58ka4pdx" version="1.6.11" des="mods/guardvillagers-1.20.1-1.6.11.jar" original="https://www.curseforge.com/minecraft/mc-mods/guard-villagers" supportNeoForge="true" />
+        <mod id="1QWR-VYkix_dFgfEx87tdvhvETCw0J2EI" version="3.0.0" des="mods/themissingvillages-3.0.0-1.20.1-beta.jar" original="https://www.curseforge.com/minecraft/mc-mods/the-missing-villages" supportNeoForge="false" />
     </repository>
 </minecraftServer>
