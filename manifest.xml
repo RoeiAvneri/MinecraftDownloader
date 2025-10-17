@@ -54,5 +54,8 @@
         <mod id="1wGHS73HnwdiBLuaVeM_g4o0zDbbvQgp6" version="1.1.6" des="mods/cristellib-1.1.6-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cristel-lib" supportNeoForge="true" />
 
         <mod id="1eMi-2MiJeNFtx9dYhF0oBQIbxO-L0Bim" version="3.0.7" des="mods/immersive-portals-3.0.7-all.jar" original="https://www.curseforge.com/minecraft/mc-mods/immersive-portals-for-forge" supportNeoForge="false" />
+        <mod id="1g8Agt0aThACT5l3rmkOyILdx0zWiIqL2" version="1.0.0" des="mods/epicclassmod-1.0.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-rise-of-heroes" supportNeoForge="false" />
+        <mod id="10XnogimRv0X0jAlMPDDDoIRQfWc8V1ke" version="20.12.12" des="mods/epicfight-forge-20.12.12-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod" supportNeoForge="false" />
+        <mod id="1pnMh3Ll4uBcq4DlO_9HXeGWg0nBFSAwK" version="2.1.5" des="mods/EpicFight-Nightfall-2.1.5.jar" original="https://www.curseforge.com/minecraft/mc-mods/epicfight-nightfall" supportNeoForge="false" />
     </repository>
 </minecraftServer>
