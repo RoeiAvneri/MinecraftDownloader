@@ -44,7 +44,6 @@
         <mod id="1MHlD6R5SRKVfy-RAC2m66Foc58ka4pdx" version="1.6.11" des="mods/guardvillagers-1.20.1-1.6.11.jar" original="https://www.curseforge.com/minecraft/mc-mods/guard-villagers" supportNeoForge="true" />
         <mod id="1QWR-VYkix_dFgfEx87tdvhvETCw0J2EI" version="3.0.0" des="mods/themissingvillages-3.0.0-1.20.1-beta.jar" original="https://www.curseforge.com/minecraft/mc-mods/the-missing-villages" supportNeoForge="false" />
         <mod id="1lNZPLlP0D5Rfmygzn-ZzT5zGxKc6tTGh" version="1.6.3" des="mods/swem-1.20.1-1.6.3.jar" original="https://www.curseforge.com/minecraft/mc-mods/swem" supportNeoForge="true" />
-        <mod id="1PPUw73PbOh_I8ixIIVkDtO-97RhnyI6w" version="1.3.14" des="mods/horseman-1.20.1-1.3.14-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/horseman" supportNeoForge="true" />
         <mod id="1ldRnb3B3rldpNmSMM9hLg9uKzUcod4nF" version="3.0.4" des="mods/decocraft-3.0.4-1.20.1-slim.jar" original="https://www.curseforge.com/minecraft/mc-mods/decocraft" supportNeoForge="false" />
 
         <mod id="1REdSIizvCzfBC5P-kqxTHKOy3r8PvhG1" version="8.7" des="mods/collective-1.20.1-8.7.jar" original="https://www.curseforge.com/minecraft/mc-mods/collective" supportNeoForge="false" />
@@ -53,5 +52,7 @@
         <mod id="1AU7CauRV-cC5E3_WD6mDQ4YV5_q4U55e" version="6.1" des="mods/areas-1.20.1-6.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/areas" supportNeoForge="true" />
         <mod id="1prLv2SWcZiazhY0Zu_ZFVjDJ0wT_g0iJ" version="3.6.6" des="mods/yet_another_config_lib_v3-3.6.6+1.20.1-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/yacl" supportNeoForge="true" />
         <mod id="1wGHS73HnwdiBLuaVeM_g4o0zDbbvQgp6" version="1.1.6" des="mods/cristellib-1.1.6-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cristel-lib" supportNeoForge="true" />
+
+        <mod id="1eMi-2MiJeNFtx9dYhF0oBQIbxO-L0Bim" version="3.0.7" des="mods/immersive-portals-3.0.7-all.jar" original="https://www.curseforge.com/minecraft/mc-mods/immersive-portals-for-forge" supportNeoForge="false" />
     </repository>
 </minecraftServer>
