@@ -59,5 +59,6 @@
         <mod id="1pnMh3Ll4uBcq4DlO_9HXeGWg0nBFSAwK" version="2.1.5" des="mods/EpicFight-Nightfall-2.1.5.jar" original="https://www.curseforge.com/minecraft/mc-mods/epicfight-nightfall" supportNeoForge="false" />
         <mod id="1hIgCZrlsv4BJFvqPMlb40wPgoFFTe6aH" version="2.1.5" des="mods/epic_fight_avalon-20.12.3.4.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-avalon" supportNeoForge="false" />
         <mod id="1IwVIDYFc9AAeeX2aY3PQ7wY1WoU8DhZF" version="3.0.15" des="mods/tectonic-3.0.15-forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/tectonic" supportNeoForge="false" />
+        <mod id="1wJ2uwLMIVsMWhZWBxEuO4nTkItPCIX7D" version="1.4.11" des="mods/lithostitched-forge-1.20.1-1.4.11.jar" original="https://www.curseforge.com/minecraft/mc-mods/lithostitched" supportNeoForge="true" />
     </repository>
 </minecraftServer>
