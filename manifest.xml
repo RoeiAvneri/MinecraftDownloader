@@ -2,7 +2,6 @@
 <minecraftServer version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-47.4.10" />
     <repository>
-        <mod id="10hjzXY3uDkhM7Q9s4QCmAiKLPldj_ADE" version="1.1.1" des="mods/WarriorsOfWorld2-1.1.1-forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/guerreros-del-mundo-2" supportNeoForge="false" />
         <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" original="https://www.curseforge.com/minecraft/mc-mods/laendli-transport" supportNeoForge="false" />
         <mod id="14wLBRw7TlDCUqkJaI1d9wM9S5iZdu-4j" version="0.0.10" des="mods/ancientstructures-forge-1.20.1-0.0.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/ancient-cultural-structures" supportNeoForge="false" />
         <mod id="1I6HM63iaVNgUNb7LoailRC17nbiPKK3R" version="2.5.37.4" des="mods/goety-2.5.37.4.jar" original="https://www.curseforge.com/minecraft/mc-mods/goety" supportNeoForge="true" />
@@ -48,20 +47,11 @@
         <mod id="1PPUw73PbOh_I8ixIIVkDtO-97RhnyI6w" version="1.3.14" des="mods/horseman-1.20.1-1.3.14-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/horseman" supportNeoForge="true" />
         <mod id="1ldRnb3B3rldpNmSMM9hLg9uKzUcod4nF" version="3.0.4" des="mods/decocraft-3.0.4-1.20.1-slim.jar" original="https://www.curseforge.com/minecraft/mc-mods/decocraft" supportNeoForge="false" />
 
-        <mod id="10XnogimRv0X0jAlMPDDDoIRQfWc8V1ke" version="20.12.12" des="mods/epicfight-forge-20.12.12-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod" supportNeoForge="false" />
-        <mod id="15toprqAKVHn2eR2Q2S4JBb7IqBkj-1H2" version="20.1.8.5.6" des="mods/WeaponsOfMiracles-20.1.8.5.6.jar" original="https://www.curseforge.com/minecraft/mc-mods/weapons-of-miracles-epicfight" supportNeoForge="false" />
-        <mod id="1SQkR4o-CdIl-Fbcq6nMND8YlHs__J3rL" version="20.2.0" des="mods/wukong-forge1.20.1-20.2.0.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-wukong-moveset" supportNeoForge="false" />
-        <mod id="1JD73SX-Gh4MqJnuZlXYYq3j_VO_cOP-U" version="0.20.12.2" des="mods/EpicFight-Resurrection-forge1.20.1-0.20.12.2-hot-fix.jar" original="https://www.curseforge.com/minecraft/mc-mods/epicfight-resurrection" supportNeoForge="false" />
-        <mod id="1p1s2FFOQSZWauU9NYq0yQBdPcUuWLvin" version="20.12.1.10" des="mods/sword_soaring-forge1.20.1-20.12.1.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/sword-soaring" supportNeoForge="false" />
-        <mod id="1sK4tbj53YlPbZlQg86jiSI9iUFo8G4pM" version="0.3.4-20.12" des="mods/refm-0.3.4-20.12.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod-rapier-moveset-addon" supportNeoForge="false" />
-        <mod id="1gFNE1zKvvkMlIWZuWihPCmWTZLmJgwlI" version="20.8.2" des="mods/falchionmoveset-20.8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-guandao-moveset" supportNeoForge="false" />
-
         <mod id="1REdSIizvCzfBC5P-kqxTHKOy3r8PvhG1" version="8.7" des="mods/collective-1.20.1-8.7.jar" original="https://www.curseforge.com/minecraft/mc-mods/collective" supportNeoForge="false" />
         <mod id="1LhscnElthbkCQ7aHRy-nT_uFNFQ41yef" version="1.0.1" des="mods/player-animation-lib-forge-1.0.2-rc1+1.20.jar" original="https://www.curseforge.com/minecraft/mc-mods/playeranimator" supportNeoForge="false" />
         <mod id="1--sNaIFQEe8F9hrKp2oJqc0_QiYovQME" version="1.3.5" des="mods/jamlib-forge-1.3.5+1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/jamlib" supportNeoForge="false" />
         <mod id="1AU7CauRV-cC5E3_WD6mDQ4YV5_q4U55e" version="6.1" des="mods/areas-1.20.1-6.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/areas" supportNeoForge="true" />
         <mod id="1prLv2SWcZiazhY0Zu_ZFVjDJ0wT_g0iJ" version="3.6.6" des="mods/yet_another_config_lib_v3-3.6.6+1.20.1-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/yacl" supportNeoForge="true" />
         <mod id="1wGHS73HnwdiBLuaVeM_g4o0zDbbvQgp6" version="1.1.6" des="mods/cristellib-1.1.6-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cristel-lib" supportNeoForge="true" />
-        <mod id="1KwZo_-v-4LOZSvP3t-8cFo5R4yZjzgYM" version="20.12.4.3" des="mods/invincible-forge1.20.1-20.12.4.3.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-invincible" supportNeoForge="false" />
     </repository>
 </minecraftServer>
