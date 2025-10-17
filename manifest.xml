@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <minecraftServer version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-forge-47.4.0" />
+    <connection ip="0.0.0.0" port="25565" forge="1.20.1-forge-47.4.0" />
     <repository>
         <mod id="10hjzXY3uDkhM7Q9s4QCmAiKLPldj_ADE" version="1.1.1" des="mods/WarriorsOfWorld2-1.1.1-forge-1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/guerreros-del-mundo-2" />
         <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" original="https://www.curseforge.com/minecraft/mc-mods/laendli-transport" />
