@@ -55,5 +55,12 @@
         <mod id="1p1s2FFOQSZWauU9NYq0yQBdPcUuWLvin" version="20.12.1.10" des="mods/sword_soaring-forge1.20.1-20.12.1.10.jar" original="https://www.curseforge.com/minecraft/mc-mods/sword-soaring" supportNeoForge="false" />
         <mod id="1sK4tbj53YlPbZlQg86jiSI9iUFo8G4pM" version="0.3.4-20.12" des="mods/refm-0.3.4-20.12.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-mod-rapier-moveset-addon" supportNeoForge="false" />
         <mod id="1gFNE1zKvvkMlIWZuWihPCmWTZLmJgwlI" version="20.8.2" des="mods/falchionmoveset-20.8.2.jar" original="https://www.curseforge.com/minecraft/mc-mods/epic-fight-guandao-moveset" supportNeoForge="false" />
+
+        <mod id="1REdSIizvCzfBC5P-kqxTHKOy3r8PvhG1" version="8.7" des="mods/collective-1.20.1-8.7.jar" original="https://www.curseforge.com/minecraft/mc-mods/collective" supportNeoForge="false" />
+        <mod id="1LhscnElthbkCQ7aHRy-nT_uFNFQ41yef" version="1.0.1" des="mods/player-animation-lib-forge-1.0.2-rc1+1.20.jar" original="https://www.curseforge.com/minecraft/mc-mods/playeranimator" supportNeoForge="false" />
+        <mod id="1--sNaIFQEe8F9hrKp2oJqc0_QiYovQME" version="1.3.5" des="mods/jamlib-forge-1.3.5+1.20.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/jamlib" supportNeoForge="false" />
+        <mod id="1AU7CauRV-cC5E3_WD6mDQ4YV5_q4U55e" version="6.1" des="mods/areas-1.20.1-6.1.jar" original="https://www.curseforge.com/minecraft/mc-mods/areas" supportNeoForge="true" />
+        <mod id="1prLv2SWcZiazhY0Zu_ZFVjDJ0wT_g0iJ" version="3.6.6" des="mods/yet_another_config_lib_v3-3.6.6+1.20.1-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/yacl" supportNeoForge="true" />
+        <mod id="1wGHS73HnwdiBLuaVeM_g4o0zDbbvQgp6" version="1.1.6" des="mods/cristellib-1.1.6-forge.jar" original="https://www.curseforge.com/minecraft/mc-mods/cristel-lib" supportNeoForge="true" />
     </repository>
 </minecraftServer>
