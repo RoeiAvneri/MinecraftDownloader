@@ -1,394 +1,138 @@
-import xml.etree.ElementTree as ET
-import gdown
-import time
-import sys
-import os
-import subprocess
-import re
-
-
-GITHUB_MANIFEST_URL = "https://raw.githubusercontent.com/RoeiAvneri/MinecraftDownloader/refs/heads/main/manifest.xml"
-LOCAL_TEMP_DIR = os.environ.get("TEMP", ".")
-LOCAL_MANIFEST_FILE = os.path.join(LOCAL_TEMP_DIR, "manifest.xml")
-LOCAL_MINECRAFT_DIR = os.path.join(os.environ.get("APPDATA", "."), ".minecraft")
-LOCAL_MODS_DIR = os.path.join(LOCAL_MINECRAFT_DIR, "mods")
-LOCAL_FORGE_FILE = ""
-
-os.makedirs(LOCAL_MODS_DIR, exist_ok=True)
-
-def CheckJavaVersion():
-    """Check if Java is installed and return version"""
-    try:
-        result = subprocess.run(
-            ["java", "-version"],
-            capture_output=True,
-            text=True,
-            timeout=10
-        )
-        java_output = result.stderr + result.stdout
-        version_match = re.search(r'version "(\d+)', java_output)
-        if version_match:
-            return int(version_match.group(1))
-    except:
-        pass
-    return None
-
-def CheckForgeInstallation(forge_version):
-    import requests
-    global LOCAL_FORGE_FILE
-
-    if not forge_version:
-        print("ERROR: No Forge version specified in manifest.")
-        return
-
-    forge_version_path = os.path.join(LOCAL_MINECRAFT_DIR, "versions", forge_version)
-
-    # Check if Forge already installed
-    if os.path.exists(forge_version_path):
-        print(f"Forge            : {forge_version}")
-        return
-    
-    # Check Java
-    java_version = CheckJavaVersion()
-    if java_version is None:
-        print("\nERROR: Java is not installed or not in PATH")
-        print("       Please install Java 17+ from https://adoptium.net/")
-        print("       Forge installation cannot proceed without Java.")
-        sys.exit(1)
-    
-    print(f"Java             : Version {java_version}")
-    
-    if java_version < 17:
-        print(f"\nERROR: Java {java_version} is too old for Minecraft 1.20.1")
-        print("       Please install Java 17+ from https://adoptium.net/")
-        sys.exit(1)
-
-    # Download Forge installer
-    print(f"Forge            : Installing {forge_version}...")
-    
-    
-    if "forge-" in forge_version:
-        clean_version = forge_version.replace("forge-", "")
-    else:
-        clean_version = forge_version
-
-    forge_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{clean_version}/forge-{clean_version}-installer.jar"
-    installer_jar = os.path.join(LOCAL_TEMP_DIR, f"{clean_version}-installer.jar")
-
-
-    try:
-        r = requests.get(forge_url, stream=True, timeout=60)
-        r.raise_for_status()
-
-        with open(installer_jar, "wb") as f:
-            for chunk in r.iter_content(chunk_size=8192):
-                if chunk:
-                    f.write(chunk)
-
-        size = os.path.getsize(installer_jar)
-        if size < 500_000:
-            raise Exception(f"Downloaded file too small ({size} bytes)")
-
-    except Exception as e:
-        print(f"\nERROR: Failed to download Forge installer")
-        print(f"       {e}")
-        fallback = "1.20.1-47.4.10"
-        print(f"       Trying fallback version {fallback}...")
-        forge_url = f"https://maven.minecraftforge.net/net/minecraftforge/forge/{fallback}/forge-{fallback}-installer.jar"
-        try:
-            r = requests.get(forge_url, stream=True, timeout=60)
-            r.raise_for_status()
-            with open(installer_jar, "wb") as f:
-                for chunk in r.iter_content(chunk_size=8192):
-                    f.write(chunk)
-        except Exception as e2:
-            print(f"\nERROR: Fallback download also failed: {e2}")
-            sys.exit(1)
-
-    # Run installer
-    print("                 : Running installer (this may take a few minutes)...")
-    try:
-        result = subprocess.run(
-            ["java", "-jar", installer_jar, "--installClient"],
-            capture_output=True,
-            text=True,
-            timeout=300
-        )
-        
-        if result.returncode != 0:
-            print(f"\nERROR: Forge installer failed with exit code: {result.returncode}")
-            print(f"       Error code: {hex(result.returncode & 0xFFFFFFFF)}")
-            
-            if result.returncode == -1073740791 or result.returncode == 3221226505:
-                print("\n       This error usually indicates:")
-                print("       1. Java version is too old (need Java 17+)")
-                print("       2. Java installation is corrupted")
-                print("       3. Insufficient memory")
-                print("\n       Troubleshooting:")
-                print("       - Install Java 17+ from https://adoptium.net/")
-                print("       - Try running as Administrator")
-                print(f"       - Manual install: java -jar \"{installer_jar}\" --installClient")
-            
-            if result.stdout:
-                print("\n       Installer output:")
-                for line in result.stdout.split('\n')[:10]:
-                    if line.strip():
-                        print(f"       {line}")
-            
-            if result.stderr:
-                print("\n       Installer errors:")
-                for line in result.stderr.split('\n')[:10]:
-                    if line.strip():
-                        print(f"       {line}")
-            
-            LOCAL_FORGE_FILE = installer_jar
-            return
-        
-        print(f"Forge            : {forge_version} installed successfully")
-        
-    except subprocess.TimeoutExpired:
-        print("\nERROR: Installer timed out after 5 minutes")
-        print(f"       Try running manually: java -jar \"{installer_jar}\" --installClient")
-        return
-    except Exception as e:
-        print(f"\nERROR: Failed to run installer: {e}")
-        print(f"       Try running manually: java -jar \"{installer_jar}\" --installClient")
-        return
-
-    LOCAL_FORGE_FILE = installer_jar
-    os.makedirs(os.path.join(LOCAL_MINECRAFT_DIR, "mods"), exist_ok=True)
-
-        
-def CleanupUnwantedMods(manifest_mods):
-    """Remove mods not in manifest"""
-    manifest_filenames = set()
-    for mod in manifest_mods:
-        file_path = mod.attrib.get('des') or mod.attrib.get('url')
-        if file_path:
-            manifest_filenames.add(os.path.basename(file_path))
-    
-    removed = 0
-    if os.path.exists(LOCAL_MODS_DIR):
-        for filename in os.listdir(LOCAL_MODS_DIR):
-            file_path = os.path.join(LOCAL_MODS_DIR, filename)
-            if os.path.isfile(file_path) and filename.endswith('.jar'):
-                if filename not in manifest_filenames:
-                    try:
-                        os.remove(file_path)
-                        removed += 1
-                    except Exception as e:
-                        print(f"ERROR: Could not remove {filename}: {e}")
-    
-    if removed > 0:
-        print(f"Cleanup          : Removed {removed} outdated mod(s)")
-            
-def LaunchMinecraftClient(forge_version):
-    launcher_profiles = os.path.join(LOCAL_MINECRAFT_DIR, "launcher_profiles.json")
-    
-    if not os.path.exists(launcher_profiles):
-        print("\nMinecraft launcher not found. Please launch manually.")
-        return
-    
-    minecraft_launcher = os.path.join(
-        os.environ.get("PROGRAMFILES(X86)", "C:\\Program Files (x86)"), 
-        "Minecraft Launcher", "MinecraftLauncher.exe"
-    )
-    
-    if os.path.exists(minecraft_launcher):
-        subprocess.Popen([minecraft_launcher])
-        print(f"\nLaunching Minecraft... Select '{forge_version}' profile")
-    else:
-        print(f"\nPlease launch Minecraft and select '{forge_version}' profile")
-    
-
-def LoadManifest():
-    # Download manifest
-    if not os.path.exists(LOCAL_MANIFEST_FILE):
-        import requests
-        try:
-            r = requests.get(GITHUB_MANIFEST_URL, timeout=30)
-            r.raise_for_status()
-            with open(LOCAL_MANIFEST_FILE, 'wb') as f:
-                f.write(r.content)
-        except requests.exceptions.RequestException as e:
-            print(f"\nERROR: Failed to download manifest from GitHub")
-            print(f"       {e}")
-            print(f"       URL: {GITHUB_MANIFEST_URL}")
-            return
-    
-    # Parse manifest
-    try:
-        tree = ET.parse(LOCAL_MANIFEST_FILE)
-    except ET.ParseError as e:
-        print(f"\nERROR: Failed to parse manifest XML")
-        print(f"       {e}")
-        print(f"       The manifest file may be corrupted.")
-        print(f"       Location: {LOCAL_MANIFEST_FILE}")
-        
-        with open(LOCAL_MANIFEST_FILE, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-            error_line = 32
-            start = max(0, error_line - 3)
-            end = min(len(lines), error_line + 2)
-            print("\n       Problematic area:")
-            for i in range(start, end):
-                marker = " >>> " if i == error_line - 1 else "     "
-                print(f"{marker}Line {i+1}: {lines[i].rstrip()}")
-        
-        print("\n       Deleting corrupted file. Please run the script again.")
-        os.remove(LOCAL_MANIFEST_FILE)
-        return
-        
-    root = tree.getroot()
-    
-    # Find connection element
-    connection = root.find('connection')
-    if connection is None:
-        print("\nERROR: Could not find <connection> tag in manifest.xml")
-        print("       Available elements:")
-        for child in root:
-            print(f"       - {child.tag}")
-        return
-    
-    forge_version = connection.attrib.get('forge')
-    if not forge_version:
-        print("\nERROR: No 'forge' attribute in <connection> tag")
-        print(f"       Available attributes: {list(connection.attrib.keys())}")
-        return
-    
-    # Check Java and Forge
-    java_version = CheckJavaVersion()
-    if java_version:
-        print(f"Java             : Version {java_version}")
-    
-    CheckForgeInstallation(forge_version)
-    
-    # Find mods
-    repo = root.find("repository")  
-    if repo is None:
-        print("\nERROR: Could not find <repository> tag in manifest.xml")
-        return
-    
-    mods = repo.findall('mod')
-    print(f"Mods             : Processing {len(mods)} mod(s)")
-    print()
-    
-    # Clean up old mods
-    CleanupUnwantedMods(mods)
-    
-    # Download mods
-    downloaded = 0
-    skipped = 0
-    failed = 0
-    
-    for i, mod in enumerate(mods, 1):
-        mod_id = mod.attrib.get('id')
-        file_path = mod.attrib.get('des') or mod.attrib.get('url')
-        
-        if not file_path:
-            print(f"[{i:2d}/{len(mods)}] ERROR: No file path for mod {mod_id}")
-            failed += 1
-            continue
-        
-        mod_name = os.path.basename(file_path)
-        local_mod_path = os.path.join(LOCAL_MODS_DIR, mod_name)
-        
-        if os.path.exists(local_mod_path):
-            print(f"[{i:2d}/{len(mods)}] {mod_name:<50} [SKIP]")
-            skipped += 1
-        else:
-            print(f"[{i:2d}/{len(mods)}] {mod_name:<50} ", end='', flush=True)
-            mod_download_url = f"https://drive.google.com/uc?id={mod_id}"
-            
-            # Try gdown first
-            success = False
-            try:
-                result = gdown.download(mod_download_url, local_mod_path, quiet=True, fuzzy=True)
-                
-                if result and os.path.exists(local_mod_path):
-                    file_size = os.path.getsize(local_mod_path)
-                    if file_size > 1000:
-                        size_mb = file_size / 1024 / 1024
-                        size_str = f"{size_mb:5.1f}".replace(" ", "")
-                        print(f"[{size_str} MB]")
-                        downloaded += 1
-                        success = True
-            except:
-                pass
-            
-            # Fallback to direct download with requests if gdown fails
-            if not success:
-                try:
-                    import requests
-                    from html import unescape
-                    direct_url = f"https://drive.google.com/uc?export=download&id={mod_id}"
-
-                    session = requests.Session()
-                    response = session.get(direct_url, stream=True)
-                    
-                    # Detect confirmation token from HTML page if needed
-                    if "confirm=" not in direct_url and "text/html" in response.headers.get("Content-Type", ""):
-                        # Sometimes the HTML page contains a confirm token we must extract
-                        import re
-                        token_match = re.search(r'confirm=([0-9A-Za-z_-]+)', response.text)
-                        if token_match:
-                            token = token_match.group(1)
-                            confirm_url = f"{direct_url}&confirm={token}"
-                            response = session.get(confirm_url, stream=True)
-                    
-                    # Write file if it's not HTML
-                    if response.status_code == 200 and "text/html" not in response.headers.get("Content-Type", ""):
-                        with open(local_mod_path, "wb") as f:
-                            for chunk in response.iter_content(chunk_size=8192):
-                                if chunk:
-                                    f.write(chunk)
-                        
-                        if os.path.exists(local_mod_path):
-                            file_size = os.path.getsize(local_mod_path)
-                            if file_size > 1000:
-                                size_mb = file_size / 1024 / 1024
-                                print(f"[{size_mb:5.1f} MB]")
-                                downloaded += 1
-                                success = True
-                    else:
-                        # If HTML, save to temp for debugging
-                        tmp_html = local_mod_path + ".html"
-                        with open(tmp_html, "wb") as f:
-                            f.write(response.content)
-                        print(f"[FAIL]")
-                        print(f"         Google Drive returned an HTML page (saved to {tmp_html})")
-                except Exception as e:
-                    print(f"[FAIL]")
-                    print(f"         Exception: {e}")
-
-                except:
-                    pass
-            
-            # If both methods failed
-            if not success:
-                print(f"[FAIL]")
-                print(f"         ERROR: Could not download from Google Drive")
-                print(f"                File ID: {mod_id}")
-                print(f"                Check if file is publicly shared: {mod_download_url}")
-                if os.path.exists(local_mod_path):
-                    os.remove(local_mod_path)
-                failed += 1
-
-    print()
-    print("="*70)
-    print(f"Summary: {downloaded} downloaded | {skipped} skipped | {failed} failed")
-    print("="*70)
-    
-    # Cleanup
-    if os.path.exists(LOCAL_MANIFEST_FILE):
-        os.remove(LOCAL_MANIFEST_FILE)
-    
-    if LOCAL_FORGE_FILE and os.path.exists(LOCAL_FORGE_FILE):
-        os.remove(LOCAL_FORGE_FILE)
-    
-    LaunchMinecraftClient(forge_version)
-
-if __name__ == "__main__":
-    LoadManifest()
-    time.sleep(3)
-    sys.exit(0)
+k='url'
+j='des'
+U='java'
+T='mods'
+V=None
+R=Exception
+O='wb'
+N=len
+K=''
+J=open
+C=True
+A=print
+import xml.etree.ElementTree as g,gdown,time,sys,os as B,subprocess as H,re,requests as Q
+h='https://raw.githubusercontent.com/RoeiAvneri/MinecraftDownloader/refs/heads/main/manifest.xml'
+S=B.environ.get('TEMP','.')
+E=B.path.join(S,'manifest.xml')
+F=B.path.join(B.environ.get('APPDATA','.'),'.minecraft')
+M=B.path.join(F,T)
+I=K
+B.makedirs(M,exist_ok=C)
+def i():
+	try:
+		A=H.run([U,'-version'],capture_output=C,text=C,timeout=10);D=A.stderr+A.stdout;B=re.search('version "(\\d+)',D)
+		if B:return int(B.group(1))
+	except:pass
+def y(forge_version):
+	Y='forge-';E=forge_version;global I
+	if not E:A('ERROR: No Forge version specified.');return
+	Z=E.replace('-','-forge-',1);a=B.path.join(F,'versions',Z)
+	if B.path.exists(a):A(f"Forge            : {E}");return
+	M=i()
+	if M is V or M<17:A('ERROR: Java 17+ is required.');sys.exit(1)
+	A(f"Java             : Version {M}");A(f"Forge            : Installing {E}...");N=E.replace(Y,K)if Y in E else E;b=f"https://maven.minecraftforge.net/net/minecraftforge/forge/{N}/forge-{N}-installer.jar";D=B.path.join(S,f"{N}-installer.jar")
+	try:
+		G=Q.get(b,stream=C,timeout=60);G.raise_for_status()
+		with J(D,O)as P:
+			for L in G.iter_content(chunk_size=8192):
+				if L:P.write(L)
+		if B.path.getsize(D)<500000:raise R('Downloaded file too small')
+	except:
+		W='1.20.1-47.4.10';G=Q.get(f"https://maven.minecraftforge.net/net/minecraftforge/forge/{W}/forge-{W}-installer.jar",stream=C,timeout=60);G.raise_for_status()
+		with J(D,O)as P:
+			for L in G.iter_content(chunk_size=8192):P.write(L)
+	try:
+		X=H.run([U,'-jar',D,'--installClient'],cwd=F,capture_output=C,text=C,timeout=300)
+		if X.returncode!=0:A(f"ERROR: Forge installer failed (code {X.returncode})");A(f'Run manually: java -jar "{D}" --installClient');I=D;return
+		A(f"Forge            : {E} installed successfully")
+	except H.TimeoutExpired:A(f'ERROR: Installer timed out. Run manually: java -jar "{D}" --installClient');return
+	except R as c:A(f"ERROR: Failed to run installer: {c}");A(f'Run manually: java -jar "{D}" --installClient');return
+	I=D;B.makedirs(B.path.join(F,T),exist_ok=C)
+def z(manifest_mods):
+	F=set()
+	for G in manifest_mods:
+		C=G.attrib.get(j)or G.attrib.get(k)
+		if C:F.add(B.path.basename(C))
+	E=0
+	if B.path.exists(M):
+		for D in B.listdir(M):
+			C=B.path.join(M,D)
+			if B.path.isfile(C)and D.endswith('.jar'):
+				if D not in F:
+					try:B.remove(C);E+=1
+					except R as H:A(f"ERROR: Could not remove {D}: {H}")
+	if E>0:A(f"Cleanup          : Removed {E} outdated mod(s)")
+def A0(forge_version):
+	C=forge_version;E=B.path.join(F,'launcher_profiles.json')
+	if not B.path.exists(E):A('\nMinecraft launcher not found. Please launch manually.');return
+	D=B.path.join(B.environ.get('PROGRAMFILES(X86)','C:\\Program Files (x86)'),'Minecraft Launcher','MinecraftLauncher.exe')
+	if B.path.exists(D):H.Popen([D]);A(f"\nLaunching Minecraft... Select '{C}' profile")
+	else:A(f"\nPlease launch Minecraft and select '{C}' profile")
+def D():
+	x='Content-Type';w='text/html'
+	if not B.path.exists(E):
+		import requests as S
+		try:
+			l=S.get(h,timeout=30);l.raise_for_status()
+			with J(E,O)as F:F.write(l.content)
+		except S.exceptions.RequestException as P:A(f"\nERROR: Failed to download manifest from GitHub");A(f"       {P}");A(f"       URL: {h}");return
+	try:A1=g.parse(E)
+	except g.ParseError as P:
+		A(f"\nERROR: Failed to parse manifest XML");A(f"       {P}");A(f"       The manifest file may be corrupted.");A(f"       Location: {E}")
+		with J(E,'r',encoding='utf-8')as F:
+			m=F.readlines();W=32;A2=max(0,W-3);A3=min(N(m),W+2);A('\n       Problematic area:')
+			for G in range(A2,A3):A4=' >>> 'if G==W-1 else'     ';A(f"{A4}Line {G+1}: {m[G].rstrip()}")
+		A('\n       Deleting corrupted file. Please run the script again.');B.remove(E);return
+	X=A1.getroot();Y=X.find('connection')
+	if Y is V:
+		A('\nERROR: Could not find <connection> tag in manifest.xml');A('       Available elements:')
+		for A5 in X:A(f"       - {A5.tag}")
+		return
+	Z=Y.attrib.get('forge')
+	if not Z:A("\nERROR: No 'forge' attribute in <connection> tag");A(f"       Available attributes: {list(Y.attrib.keys())}");return
+	n=i()
+	if n:A(f"Java             : Version {n}")
+	y(Z);o=X.find('repository')
+	if o is V:A('\nERROR: Could not find <repository> tag in manifest.xml');return
+	L=o.findall('mod');A(f"Mods             : Processing {N(L)} mod(s)");A();z(L);a=0;p=0;b=0
+	for(G,c)in enumerate(L,1):
+		T=c.attrib.get('id');q=c.attrib.get(j)or c.attrib.get(k)
+		if not q:A(f"[{G:02d}/{N(L)}] ERROR: No file path for mod {T}");b+=1;continue
+		d=B.path.basename(q);D=B.path.join(M,d)
+		if B.path.exists(D):A(f"[{G:02d}/{N(L)}] {d:<50} [SKIP]");p+=1
+		else:
+			A(f"[{G:02d}/{N(L)}] {d:<50} ",end=K,flush=C);r=f"https://drive.google.com/uc?id={T}";U=False
+			try:
+				A6=gdown.download(r,D,quiet=C,fuzzy=C)
+				if A6 and B.path.exists(D):
+					Q=B.path.getsize(D)
+					if Q>1000:e=Q/1024/1024;A7=f"{e:5.1f}".replace(' ',K);A(f"[{A7} MB]");a+=1;U=C
+			except:pass
+			if not U:
+				try:
+					import requests as S;from html import unescape;f=f"https://drive.google.com/uc?export=download&id={T}";s=S.Session();H=s.get(f,stream=C)
+					if'confirm='not in f and w in H.headers.get(x,K):
+						import re;t=re.search('confirm=([0-9A-Za-z_-]+)',H.text)
+						if t:A8=t.group(1);A9=f"{f}&confirm={A8}";H=s.get(A9,stream=C)
+					if H.status_code==200 and w not in H.headers.get(x,K):
+						with J(D,O)as F:
+							for u in H.iter_content(chunk_size=8192):
+								if u:F.write(u)
+						if B.path.exists(D):
+							Q=B.path.getsize(D)
+							if Q>1000:e=Q/1024/1024;A(f"[{e:5.1f} MB]");a+=1;U=C
+					else:
+						v=D+'.html'
+						with J(v,O)as F:F.write(H.content)
+						A(f"[FAIL]");A(f"         Google Drive returned an HTML page (saved to {v})")
+				except R as P:A(f"[FAIL]");A(f"         Exception: {P}")
+				except:pass
+			if not U:
+				A(f"[FAIL]");A(f"         ERROR: Could not download from Google Drive");A(f"                File ID: {T}");A(f"                Check if file is publicly shared: {r}")
+				if B.path.exists(D):B.remove(D)
+				b+=1
+	A();A('='*70);A(f"Summary: {a} downloaded | {p} skipped | {b} failed");A('='*70)
+	if B.path.exists(E):B.remove(E)
+	if I and B.path.exists(I):B.remove(I)
+	A0(Z)
+if __name__=='__main__':D();time.sleep(3);sys.exit(0)
