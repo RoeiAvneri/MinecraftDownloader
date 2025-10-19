@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <minecraftServer version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-47.4.10" />
+    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-47.4.0" />
     <repository>
         <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" />
         <mod id="14wLBRw7TlDCUqkJaI1d9wM9S5iZdu-4j" version="0.0.10" des="mods/ancientstructures-forge-1.20.1-0.0.10.jar" />
