@@ -57,5 +57,6 @@
         <mod id="1wJ2uwLMIVsMWhZWBxEuO4nTkItPCIX7D" version="1.4.11" des="mods/lithostitched-forge-1.20.1-1.4.11.jar" />
         <mod id="1KwZo_-v-4LOZSvP3t-8cFo5R4yZjzgYM" version="1.4.11" des="mods/invincible-forge1.20.1-20.12.4.0.jar" />
         <mod id="1ZAqBy2pQBttYHImN7fSD8m5SXtDbWHFy" version="5.3.3" des="mods/simpleplanes-1.20.1-5.3.3.jar" />
+        <mod id="1nv6ep4T7YDZeUTPU0YMSoQGUu7Tmmqup" version="3.4.0.11" des="mods/irons_spellbooks-1.20.1-3.4.0.11.jar" />
     </repository>
 </minecraftServer>
