@@ -63,5 +63,8 @@
         <mod id="1EK2SXsYrFu4IPPtwjNNiEATpoFIfU6RU" version="2.1.3" des="mods/ftb-xmod-compat-forge-2.1.3.jar" />
         <mod id="1PQPlIVzkcyxgnUMgX5nTIeTAz53lyAvb" version="1.2.11a" des="mods/fusion-1.2.11a-forge-mc1.20.1.jar" />
         <mod id="1OPR7e3XUz0WKymf0Gi_Vio-_cVRqReTt" version="84.1" des="mods/Patchouli-1.20.1-84.1-FORGE.jar" />
+        <mod id="1jOadOPJYWjc2bzL-AxV6fFrdt4OqVy9t" version="0.7.4.2" des="mods/Ballistix-1.20.1-0.7.4-2.jar" />
+        <mod id="1d-GJSbVJvaarzzfjOR_86oJ3oitgEC5L" version="1.0.0.9" des="mods/Voltaic-1.20.1-1.0.0-9.jar" />
+        <mod id="1JPaV2sR8VbSk2v99VtZuZlGnd4BYFypS" version="25.2.10" des="mods/Xaeros_Minimap_25.2.10_Forge_1.20.jar" />
     </repository>
 </minecraftServer>
