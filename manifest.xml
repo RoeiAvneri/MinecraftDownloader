@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <minecraftServer version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-47.4.0" />
+    <connection ip="your.minecraftserver.ip" port="25565" forge="1.20.1-47.4.10" />
     <repository>
         <mod id="1TdVdyPoIHxB6wHGLGisvvLv7ODme7XdC" version="1.7.7a" des="mods/Laendli_1.7.7a (1.20.1_forge).jar" />
         <mod id="14wLBRw7TlDCUqkJaI1d9wM9S5iZdu-4j" version="0.0.10" des="mods/ancientstructures-forge-1.20.1-0.0.10.jar" />
@@ -60,5 +60,8 @@
         <mod id="1nv6ep4T7YDZeUTPU0YMSoQGUu7Tmmqup" version="3.4.0.11" des="mods/irons_spellbooks-1.20.1-3.4.0.11.jar" />
         <mod id="1_W1xYUWO1u52kjuyyZkFk3Vzkk82nGqM" version="3.2.0" des="mods/caelus-forge-3.2.0+1.20.1.jar" />
         <mod id="1Sh41v94G2S-5beo1WfnHeqwWo5xBFnBQ" version="0.3.31" des="mods/xenon-0.3.31+mc1.20.1.jar" />
+        <mod id="1EK2SXsYrFu4IPPtwjNNiEATpoFIfU6RU" version="2.1.3" des="mods/ftb-xmod-compat-forge-2.1.3.jar" />
+        <mod id="1PQPlIVzkcyxgnUMgX5nTIeTAz53lyAvb" version="1.2.11a" des="mods/fusion-1.2.11a-forge-mc1.20.1.jar" />
+        <mod id="1OPR7e3XUz0WKymf0Gi_Vio-_cVRqReTt" version="84.1" des="mods/Patchouli-1.20.1-84.1-FORGE.jar" />
     </repository>
 </minecraftServer>
